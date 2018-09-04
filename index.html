@@ -9,6 +9,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
 
     <script type="text/javascript" src="js/scrolloverflow.js"></script>
+    <script type="text/javascript" src="js/scrolloverflow.min.js"></script>
 
     <script type="text/javascript" src="js/jquery.fullPage.js"></script>
 
@@ -17,11 +18,11 @@
             $('#fullpage').fullpage({
                 anchors: ['page1', 'page2', 'page3','page4'],
                 sectionsColor: ['#445c95', '#0f1c3c', '#e6e6e6','#e6e6e6'],
+                scrollOverflow: true,
                 onLeave: function(index, nextIndex, direction){
-                  if(nextIndex === 5){
-                    var destinationSection = $('.section').eq(nextIndex-1);
-                    destinationSection.addClass('load-background');
-                  }
+                    if (nextIndex === 1) {
+                        $("#fullpage").css("transfom","translate3d(0px, 0px, 0px)");
+                    }
                 }
             });
         });
