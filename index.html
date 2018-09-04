@@ -46,7 +46,6 @@
             <input type="text" placeholder="姓名">
             <input type="text" placeholder="姓名">
             <input type="text" placeholder="姓名">
-            <input type="text" placeholder="姓名">
             <input type="text" placeholder="手机号">
          </div>
          <div class="section">第二屏</div>
@@ -66,9 +65,9 @@
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
                 $("#fullpage").css("transfom","translate3d(0px, 0px, 0px)");
-                $("input").blur();
             } else {
                 $("#fullpage").css("height",originalHeight+"px");
+                $("input").blur();
             }
         }
     </script>
