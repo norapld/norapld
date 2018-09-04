@@ -26,6 +26,7 @@
                 }
             });
         });
+        $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
     </script>
     <style>
         input {
@@ -43,7 +44,7 @@
     <div id="fullpage">
          <div class="section">
             <input type="text" placeholder="name">
-            <input type="text" placeholder="linkk">
+            <input type="text" placeholder="link">
             <input type="text" placeholder="姓名">
             <input type="text" placeholder="手机号">
          </div>
@@ -63,7 +64,7 @@
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
-                $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
+               
             } else {
                 $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(false); })
             }
