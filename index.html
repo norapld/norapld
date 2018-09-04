@@ -66,8 +66,9 @@
             if(resizeHeight-0 < originalHeight-0){
                 console.log(1);
             } else {
-                $('input').blur();
-                $(window).scrollTop(0,0);
+                $('input[type="text"]').blur(function() {
+                  $(window).scrollTop(0,0);
+                });
             }
         }
     </script>
