@@ -50,10 +50,6 @@
             <input type="text" placeholder="姓名">
             <input type="text" placeholder="姓名">
             <input type="text" placeholder="姓名">
-            <input type="text" placeholder="姓名">
-            <input type="text" placeholder="姓名">
-            <input type="text" placeholder="姓名">
-            <input type="text" placeholder="姓名">
          </div>
          <div class="section">第二屏</div>
          <div class="section">
@@ -67,13 +63,13 @@
     <script type="text/javascript" >
         //监控安卓调起软键盘高度
         var originalHeight=document.documentElement.clientHeight ||document.body.clientHeight;
+        alert(originalHeight);
         window.onresize = function(){
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
-                console.log("显示1")
-            } else {
                 $("#fullpage").css("transfom","translate3d(0px, 0px, 0px)");
+                alert("resizeHeight",resizeHeight);
             }
         }
     </script>
