@@ -60,16 +60,14 @@
     <script type="text/javascript" >
         //监控安卓调起软键盘高度
         var originalHeight=document.documentElement.clientHeight ||document.body.clientHeight;
-        var initialOffset = $('body').scrollTop();
         window.onresize = function(){
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
                 console.log(1);
             } else {
-                $('input').blur(function(e) {
-                    $('body').scrollTop(initialOffset);
-                });
+                $('input').blur();
+                $(window).scrollTop(0,0);
             }
         }
     </script>
