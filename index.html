@@ -45,7 +45,7 @@
             <input type="text" placeholder="name">
             <input type="text" placeholder="url">
             <input type="text" placeholder="link">
-            <input type="text" id="phoneNumber" placeholder="phone">
+            <input type="text" id="phoneNumber" placeholder="phoneN">
          </div>
          <div class="section">第二屏</div>
          <div class="section">
@@ -67,6 +67,7 @@
             } else {
                 //$('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
                 $('#phoneNumber').focusout();
+                $('#fullpage').fullpage.setAutoScrolling(true);
             }
         }
     </script>
