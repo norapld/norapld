@@ -45,7 +45,7 @@
             <input type="text" placeholder="name">
             <input type="text" placeholder="url">
             <input type="text" placeholder="link">
-            <input type="text" id="phoneNumber" placeholder="phone">
+            <input type="text" id="phoneNumber" placeholder="phonV">
          </div>
          <div class="section">第二屏</div>
          <div class="section">
@@ -64,6 +64,8 @@
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
                $('#fullpage').fullpage.setAutoScrolling(false);
+            } else {
+                $('#fullpage').fullpage.setAutoScrolling(true);
             }
         }
     </script>
