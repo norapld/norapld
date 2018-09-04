@@ -64,10 +64,12 @@
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
                 console.log(1);
-            } else {
+                $('#fullpage').fullpage.setAutoScrolling(true);
                 $('input').blur(function() {
                   $(window).scrollTop(0,0);
                 });
+            } else {
+                $('input').blur(); 
             }
         }
     </script>
