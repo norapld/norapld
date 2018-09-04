@@ -25,7 +25,7 @@
                     }
                 }
             });
-            $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
+            $('input').focusout(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
         });
     </script>
     <style>
@@ -64,10 +64,10 @@
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
-               $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(false); });
+               $('input').focusin(function() { $('#fullpage').fullpage.setAutoScrolling(false); });
             } else {
                 //$('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
-                $('input').blur();
+                $('input').focusout();
             }
         }
     </script>
