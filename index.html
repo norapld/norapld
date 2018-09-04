@@ -26,7 +26,8 @@
                 }
             });
         });
-        $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
+        $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(false); });
+        $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
     </script>
     <style>
         input {
@@ -46,7 +47,7 @@
             <input type="text" placeholder="name">
             <input type="text" placeholder="url">
             <input type="text" placeholder="link">
-            <input type="text" placeholder="phoneNumber">
+            <input type="text" placeholder="phone">
          </div>
          <div class="section">第二屏</div>
          <div class="section">
@@ -66,7 +67,7 @@
             if(resizeHeight-0 < originalHeight-0){
                
             } else {
-                $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(false); });
+                
             }
         }
     </script>
