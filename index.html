@@ -25,6 +25,8 @@
                     }
                 }
             });
+            $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(false); });
+            $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
         });
     </script>
     <style>
@@ -43,7 +45,7 @@
     <div id="fullpage">
          <div class="section">
             <input type="text" placeholder="name">
-            <input type="text" placeholder="姓名">
+            <input type="text" placeholder="link">
             <input type="text" placeholder="姓名">
             <input type="text" placeholder="手机号">
          </div>
@@ -64,12 +66,8 @@
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
                 console.log(1);
-                $('#fullpage').fullpage.setAutoScrolling(true);
-                $('input').blur(function() {
-                  $(window).scrollTop(0,0);
-                });
             } else {
-                $('input').blur(); 
+                $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); })
             }
         }
     </script>
