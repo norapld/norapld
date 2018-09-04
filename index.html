@@ -25,7 +25,6 @@
                     }
                 }
             });
-            $('#phoneNumber').focusout(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
         });
     </script>
     <style>
@@ -64,7 +63,7 @@
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
             if(resizeHeight-0 < originalHeight-0){
-               $('#phoneNumber').focusin(function() { $('#fullpage').fullpage.setAutoScrolling(false); });
+               $('#fullpage').fullpage.setAutoScrolling(false);
             } else {
                 //$('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); });
                 $('#phoneNumber').focusout();
