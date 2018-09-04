@@ -25,6 +25,8 @@
                     }
                 }
             });
+            $('input').focus(function() { $('#fullpage').fullpage.setAutoScrolling(false); };
+            $('input').blur(function() { $('#fullpage').fullpage.setAutoScrolling(true); };
         });
     </script>
     <style>
@@ -45,7 +47,7 @@
             <input type="text" placeholder="name">
             <input type="text" placeholder="url">
             <input type="text" placeholder="link">
-            <input type="text" id="phoneNumber" placeholder="phonV">
+            <input type="text" id="phoneNumber" placeholder="phonN">
          </div>
          <div class="section">第二屏</div>
          <div class="section">
@@ -62,10 +64,8 @@
         window.onresize = function(){
             //键盘弹起与隐藏都会引起窗口的高度发生变化
             var resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
-            if(resizeHeight-0 < originalHeight-0){
-               $('#fullpage').fullpage.setAutoScrolling(false);
-            } else {
-                $('#fullpage').fullpage.setAutoScrolling(true);
+            if(resizeHeight-0 > originalHeight-0){
+               $('#fullpage').fullpage.setAutoScrolling(true);
             }
         }
     </script>
