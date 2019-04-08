@@ -84,7 +84,24 @@
             border-radius: 8px;
             border: 1px solid #666;
         }
- 
+        .borde-image{
+            position: relative;
+            z-index: 1;
+            margin: 0 6px;
+            font-size: 12px;
+            color: #898983;
+            line-height: 1.5;
+            min-height: 24px;
+            flex-direction: column;
+            justify-content: center;
+            border: 20px solid transparent;
+            border-style: solid;
+            border-width: 20px;
+            -moz-border-image: url(./images/coupon/card_border.png) 38 38 34 30 stretch; /* 老版本的 Firefox */
+            -webkit-border-image: url(./images/coupon/card_border.png) 38 38 34 30 stretch; /* Safari */
+            -o-border-image: url(./images/coupon/card_border.png) 38 38 34 30 stretch; /* Opera */
+            border-image: url(./images/coupon/card_border.png) 38 38 34 30 repeat stretch ;
+        }
     </style>
 </head>
 <body>
@@ -98,26 +115,9 @@
                     <ul class="mod-list">
                        <li class="list-item">测测1</li>
                        <li class="list-item">测测2</li>
-                       <li class="list-item">测测3</li>
-                       <li class="list-item">测测4</li>
-                       <li class="list-item">测测2</li>
-                       <li class="list-item">测测3</li>
-                       <li class="list-item">测测4</li>
-                       <li class="list-item">测测1</li>
-                       <li class="list-item">测测2</li>
-                       <li class="list-item">测测3</li>
-                       <li class="list-item">测测4</li>
-                       <li class="list-item">测测2</li>
-                       <li class="list-item">测测3</li>
-                       <li class="list-item">测测4</li>
-                       <li class="list-item">测测1</li>
-                       <li class="list-item">测测2</li>
-                       <li class="list-item">测测3</li>
-                       <li class="list-item">测测4</li>
-                       <li class="list-item">测测2</li>
-                       <li class="list-item">测测3</li>
-                       <li class="list-item">测测4</li>  
+                       <li class="list-item">测测3</li>  
                     </ul>
+                    <div class="border-image">测试border-images</div>
                 </div>
             </div>
         </div>
