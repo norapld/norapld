@@ -95,18 +95,27 @@
             flex-direction: column;
             justify-content: center;
             border: 20px solid transparent;
-            border-image: url(./images/card_border.png) 38 38 34 30 repeat stretch ;
-            -moz-border-image: url(./images/card_border.png) 38 38 34 30 stretch; /* 老版本的 Firefox */
-            -webkit-border-image: url(./images/card_border.png) 38 38 34 30 stretch; /* Safari */
-            -o-border-image: url(./images/card_border.png) 38 38 34 30 stretch; /* Opera */
+        }
+        .bottom {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            background-color: orange;
+            color: #fff;
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="wrap">
         <div class="select-box">
-            <div class="select-area">
-                <input type="text" placeholder="请输入任意数"> 
+            <div class="select-area mod-formite">
+                <label class="dis-block">验证码<lable>
+                <input type="text" placeholder="请输入任意数">
             </div>
             <div class="mod-list-wrapper">
                 <div class="mod-list-page">
@@ -115,8 +124,10 @@
                        <li class="list-item">测测2</li>
                        <li class="list-item">测测3</li>  
                     </ul>
-                    <div class="borderImage">测试border-images</div>
                 </div>
+            </div>
+            <div class="bottom">
+                底部的文案
             </div>
         </div>
          <div class="copyright">本服务由xxx提供</div>
