@@ -2,19 +2,19 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>AngularJS 路由实例 - 菜鸟教程</title>
+<title>路由实例</title>
 <script src="https://cdn.staticfile.org/angular.js/1.7.0/angular.min.js"></script>
 <script src="https://cdn.staticfile.org/angular.js/1.7.0/angular-route.min.js"></script>
 </head>
 <body ng-app='routingDemoApp' ng-controller="myCtrl">
  
-    <h2>AngularJS 路由应用</h2>
+    <h2>路由应用</h2>
     <ul>
         <li><a href="#!/">首页</a></li>
         <li><a href="#!/computers">电脑</a></li>
         <li><a href="#!/printers">打印机</a></li>
         <li><a href="#!/blabla">其他</a></li>
-        <div ng-click="change()">点我跳转</div>
+        <li>{{counter}}</li>
     </ul>
      
     <div ng-view></div>
@@ -27,14 +27,20 @@
 	            .when('/printers',{template:'这是打印机页面'})
 	            .otherwise({redirectTo:'/'});
 	        }]);
-	        app.controller('myCtrl', function($scope, $location) {
-			    $scope.firstName = "John",
-			    $scope.lastName = "Doe"
-			    $scope.myVar = false;
-			    $scope.change = function() {
-			    	console.log('点击跳转');
-			        $location.path("/printers").replace();		    
+	        app.controller('myCtrl', function($scope, $location, $timeout) {
+
+				$scope.counter = 0;
+			    $scope.onTimeout = function(){
+			        $scope.counter++;
+			        if ($scope.counter === 6){
+			    		$timeout.cancel(mytimeout);
+			    		$location.path("/printers").replace();
+			    		return;
+			    	}
+			        mytimeout = $timeout($scope.onTimeout,10000);
 			    };
+			    var mytimeout = $timeout($scope.onTimeout,10000);
+			    
 			});
     </script>
     <script type="text/javascript">
@@ -42,7 +48,7 @@
 	        setTimeout(function(){
 	            console.log('我刷新了！');
 	            window.canHandleBack = true;
-	        }, 100000);
+	        }, 20000);
 	    }
     </script>
 </body>
