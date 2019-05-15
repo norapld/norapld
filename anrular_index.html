@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AngularJS 路由实例 - 菜鸟教程</title>
+<script src="https://cdn.staticfile.org/angular.js/1.7.0/angular.min.js"></script>
+<script src="https://cdn.staticfile.org/angular.js/1.7.0/angular-route.min.js"></script>
+</head>
+<body ng-app='routingDemoApp' ng-controller="myCtrl">
+ 
+    <h2>AngularJS 路由应用</h2>
+    <ul>
+        <li><a href="#!/">首页</a></li>
+        <li><a href="#!/computers">电脑</a></li>
+        <li><a href="#!/printers">打印机</a></li>
+        <li><a href="#!/blabla">其他</a></li>
+        <div ng-click="change()">点我跳转</div>
+    </ul>
+     
+    <div ng-view></div>
+    <script>
+        var app = angular.module('routingDemoApp',['ngRoute']);
+	        app.config(['$routeProvider', function($routeProvider){
+	            $routeProvider
+	            .when('/',{template:'这是首页页面'})
+	            .when('/computers',{template:'这是电脑分类页面'})
+	            .when('/printers',{template:'这是打印机页面'})
+	            .otherwise({redirectTo:'/'});
+	        }]);
+	        app.controller('myCtrl', function($scope, $location) {
+			    $scope.firstName = "John",
+			    $scope.lastName = "Doe"
+			    $scope.myVar = false;
+			    $scope.change = function() {
+			    	console.log('点击跳转');
+			        $location.path("/printers").replace();		    
+			    };
+			});
+    </script>
+    <script type="text/javascript">
+	    window.onload = function(){
+	        setTimeout(function(){
+	            console.log('我刷新了！');
+	            window.canHandleBack = true;
+	        }, 100000);
+	    }
+    </script>
+</body>
+</html>
