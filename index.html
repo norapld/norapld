@@ -222,6 +222,7 @@
       }
       console.log(uipa);
       spoken = meSpeak.speak('[['+uipa+']]', { 'rawdata': 'mime' });
+      console.log('spoken ===', spoken);
       if (spoken == null) {
         alert("An error occurred: speaking failed.");
       }
