@@ -82,47 +82,12 @@
 <body>
   <div id="container">
     <h1>phoneme synthesis</h1>
-    <noscript>
-      <p><strong>A modern JavaScript-enabled browser is required.</strong> As an alternative, consider using <a href="http://ssb22.user.srcf.net/gradint/lexconvert.html">lexconvert</a> in conjunction with <a href="http://espeak.sourceforge.net/">eSpeak</a>.</p>
-      <p>Sample command for <a href="https://en.wikipedia.org/wiki/Mumbai" rel="nofollow">Mumbai</a>:<br /><span style="font-family: monospace;">python lexconvert.py --try unicode-ipa "/mʊmˈbaɪ/"</span></p>
-    </noscript>
 
     <script type="text/javascript">
     var spoken;
 
-    // download function from Matěj Pokorný: https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file/18197511#18197511    
-    function download() {
-      var pom = document.createElement('a');
-      pom.setAttribute('href', spoken);
-      pom.setAttribute('download', "spoken.wav");
-
-      if (document.createEvent) {
-          var event = document.createEvent('MouseEvents');
-          event.initEvent('click', true, true);
-          pom.dispatchEvent(event);
-      }
-      else {
-          pom.click();
-      }
-    }
-
     function clear_download_button() {
       document.getElementById("download-button").disabled = true;
-    }
-
-    function copyToClipboard(text) {
-      t = document.createElement('input');
-      t.value = text;
-      document.body.appendChild(t);
-      t.select();
-      document.execCommand('copy');
-      document.body.removeChild(t);
-    }
-
-    function copy_link_button() {
-      uipa = document.getElementById("ipa-input").value;
-      url = window.location.href.split('?')[0] + "?w=" + uipa;
-      copyToClipboard(url);
     }
 
     function process() {
@@ -275,59 +240,10 @@
 
 
     <div id="tool">
-    <p style="text-align: center;"><em>Convert <abbr title="International Phonetic Alphabet">IPA</abbr> phonetic notation to speech</em></p>
     <form onsubmit="process(); return false;">
       <input id="ipa-input" onchange="clear_download_button(); return false;" type="text" value="/mʊmˈbaɪ/" />
       <input id="submit" onclick="process(); return false;" type="button" value="pronounce" />
-      <input id="download-button" onclick="download(); return false;" type="button" disabled="disabled" value="download pronunciation" />
-      <input id="copy-link-button" onclick="copy_link_button(); return false;" type="button" value="copy share url" />
     </form>
     </div>
-  
-    <hr />
-
-    <div id="about">
-      <h2>how does it work?</h2>
-      <p>Using the computational capabilities exposed by your browser's JavaScript processor, the <abbr title="International Phonetic Alphabet">IPA</abbr> phonetic notation is translated into phonemes understood by <a href="http://espeak.sourceforge.net/" rel="nofollow">eSpeak</a> using correspondences and logic found in <a href="http://ssb22.user.srcf.net/gradint/lexconvert.html">lexconvert</a>. The translated phonemes (e.g., [[mUm'baI]] for /mʊmˈbaɪ/) are then provided to <a href="http://www.masswerk.at/mespeak/" rel="nofollow">meSpeak.js</a>, a revised <a href="http://emscripten.org/" rel="nofollow">Emscripten'd</a> version of eSpeak for output. Once the output has been generated, the pronunciation in <abbr title="Waveform Audio File">WAV</abbr> format is downloadable.</p>
-      <p>As this processing takes place within your browser, this page may be downloaded and used offline. By extension, the requested pronunciations are not logged.</p>
-
-      <h2>improve this tool</h2>
-      <p><strong>Contribute via <a href="https://github.com/itinerarium/phoneme-synthesis/">GitHub</a>.</strong></p>
-      <p><strong>Report a bug.</strong> Be sure to include the problematic input, your browser version (Help > About), operating system version, and device type. File <a href="https://github.com/itinerarium/phoneme-synthesis/issues">an issue on GitHub</a> or send an e-mail.</p>
-      <p><strong>Enrich the <abbr title="International Phonetic Alphabet">IPA</abbr>-phoneme correspondence list.</strong> For English, eSpeak recognizes 96 phonemes (<span style="font-family: monospace;">dictsource/dict_phonemes</span>). Currently, only 55 are mapped using lexconvert and there may have been mistakes in interpreting lexconvert's conversion scheme. Additional correspondences should improve pronunciation.</p>
-      <p><strong>Contribute to the underlying libraries.</strong> eSpeak, meSpeak.js, or the most current Emscripten'd variation to improve performance/size. meSpeak.js is currently over two megabytes.</p>
-
-      <h2>about</h2>
-      <p>This browser-based tool integrates GPL-licensed <a href="http://www.masswerk.at/mespeak/" rel="nofollow">meSpeak.js</a> (a revised <a href="http://emscripten.org/" rel="nofollow">Emscripten'd</a> version of <a href="http://espeak.sourceforge.net/" rel="nofollow">eSpeak</a>) and correspondences from <a href="http://ssb22.user.srcf.net/gradint/lexconvert.html">lexconvert</a> to parse <abbr title="International Phonetic Alphabet">IPA</abbr> phonetic notation and convert it to speech.</p>
-      <p>This tool is also available at &lt;<a href="https://www.0n0e.com/public/phoneme-synthesis/">https://www.0n0e.com/public/phoneme-synthesis/</a>&gt;.</p>
-
-      <h2>contact</h2>
-      <p style="margin-bottom: 0;">person at 0n0e dot com</p>
-    </div>
-
-    <hr />
-    <div id="note">
-      <h2>note</h2>
-      <p>It was odd that this tool did not exist; the underlying components were free (as in beer and freedom) and readily available for years (eSpeak was Emscripten'd in 2011: <a href="https://github.com/kripken/speak.js/" rel="nofollow">speak.js</a>) alongside clear demand (e.g., in 2013, <a href="https://www.reddit.com/r/linguistics/comments/1qdpoo/ipa_text_to_speech/" rel="nofollow">r/linguistics</a> and <a href="https://linguistics.stackexchange.com/questions/3035/is-it-hard-for-software-speech-synthesisers-to-handle-ipa-if-so-why" rel="nofollow">Linguistics Stack Exchange</a>).</p>
-      <p>There was a <a href="http://johntantalo.com/blog/ipa-tts-bookmarklet/" rel="nofollow">bookmarket for AT&amp;T's Natural Voices demo</a>, but the endpoint appears to be no longer available.</p>
-      <p>eSpeak, unfortunately, does not parse <abbr title="International Phonetic Alphabet">IPA</abbr> phonetic notation directly, requiring the conversion assisted by lexconvert. Although the Emscripten'd version of eSpeak is somewhat large, two megabytes has become less noticeable as page sizes have increased over time. As a side effect, with no server-side processing and no automatic processing, privacy and security considerations were simplified (with the assumption that meSpeak.js is trustworthy).</p>
-      <p style="margin-bottom: 0;">Last updated: 2017-01-04</p>
-    </div>
-  </div>
-  <script type="text/javascript">
-    function is_valid_input(i) {
-      return !(i.includes("<") || i.includes(">") || i.length > 200)
-    }
-
-    (function() {
-      var urlParams = new URLSearchParams(window.location.search);
-      if(urlParams.has('w')) {
-	var word = urlParams.get('w');
-	if(is_valid_input(word)) {
-          document.getElementById("ipa-input").value = word;
-	}
-      }
-    })();
-  </script>
 </body>
 </html>
