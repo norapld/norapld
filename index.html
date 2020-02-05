@@ -86,14 +86,8 @@
     <script type="text/javascript">
     var spoken;
 
-    function clear_download_button() {
-      document.getElementById("download-button").disabled = true;
-    }
-
     function process() {
       uipa = document.getElementById("ipa-input").value;
-
-      document.getElementById("download-button").disabled = true;
 
       // nothing to process      
       if (uipa == null || uipa.length == 0) {
@@ -232,7 +226,6 @@
         alert("An error occurred: speaking failed.");
       }
 
-      document.getElementById("download-button").disabled = false;
 
       meSpeak.play(spoken);
     }
@@ -241,7 +234,7 @@
 
     <div id="tool">
     <form onsubmit="process(); return false;">
-      <input id="ipa-input" onchange="clear_download_button(); return false;" type="text" value="/mʊmˈbaɪ/" />
+      <input id="ipa-input"  return false;" type="text" value="/mʊmˈbaɪ/" />
       <input id="submit" onclick="process(); return false;" type="button" value="pronounce" />
     </form>
     </div>
